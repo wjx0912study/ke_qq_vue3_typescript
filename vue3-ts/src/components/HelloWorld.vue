@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useStore } from '../store'
+import { useStore } from '@/store'
 
 defineProps<{ msg: string }>()
 
