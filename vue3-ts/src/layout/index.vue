@@ -24,13 +24,14 @@
   width: 100%;
   height: 100%;
   .asside {
-    //background-color: aquamarine;
+    background-color: rgb(48, 65, 86);
   }
   .header {
-    background-color: blueviolet;
+    height: 50px;
+    border-bottom: 1px solid #e5e5e5;
   }
   .main {
-    background-color: darkgray;
+    //background-color: darkgray;
   }
 }
 </style>
