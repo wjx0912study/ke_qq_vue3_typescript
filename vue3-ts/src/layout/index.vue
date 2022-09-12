@@ -1,8 +1,12 @@
 <template>
     <el-container class="layout">
-      <el-aside width="200px" class="asside">Aside</el-aside>
+      <el-aside width="200px" class="asside">
+        <MenuBar></MenuBar>
+      </el-aside>
       <el-container>
-        <el-header class="header">Header</el-header>
+        <el-header class="header">
+          <Header></Header>
+        </el-header>
         <el-main class="main">Main</el-main>
       </el-container>
     </el-container>
@@ -10,7 +14,8 @@
 
 
 <script lang="ts" setup>
-
+  import Header from '@/layout/header/Header.vue'
+  import MenuBar from '@/layout/menu/MenuBar.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -19,7 +24,7 @@
   width: 100%;
   height: 100%;
   .asside {
-    background-color: aquamarine;
+    //background-color: aquamarine;
   }
   .header {
     background-color: blueviolet;
