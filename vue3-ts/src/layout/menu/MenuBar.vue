@@ -1,21 +1,30 @@
 <template>
   <MenuLogo></MenuLogo>
   <el-menu
-    default-active="2"
+    :default-active="activeIndex"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
     background-color="#304156"
+    router
   >
     <MenuItem :menuList='menuList'></MenuItem>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive } from 'vue'
+  import { computed } from '@vue/reactivity';
+import { ref, reactive } from 'vue'
+  import { useRoute } from 'vue-router'
   import MenuItem from './MenuItem.vue'
   import MenuLogo from './MenuLogo.vue'
+
+  const route = useRoute()
+  const activeIndex = computed(()=>{
+    const {path} = route
+    return path
+  })
 
   //菜单数据
   let menuList = reactive([
