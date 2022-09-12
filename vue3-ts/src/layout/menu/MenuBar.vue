@@ -1,4 +1,5 @@
 <template>
+  <MenuLogo></MenuLogo>
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"
@@ -21,6 +22,7 @@
   } from '@element-plus/icons-vue'
 
   import MenuItem from './MenuItem.vue'
+  import MenuLogo from './MenuLogo.vue'
 
   //菜单数据
   let menuList = reactive([
@@ -160,35 +162,34 @@
 </script>
 
 <style lang="scss" scoped>
-
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 230px;
-    min-height: 400px;
+  width: 230px;
+  min-height: 400px;
 }
-
 .el-menu {
   border-right: none;
 }
-::v-deep .el-sub-menu .el-sub-menu__title {
-  color: #f4f4f5 !important;
-}
-/* .el-submenu .is-active .el-submenu__title {
-  border-bottom-color: #1890ff;
-} */
-::v-deep .el-menu .el-menu-item {
-  color: #bfcbd9;
+
+:deep(.el-sub-menu .el-sub-menu__title){
+	 color: #f4f4f5 !important;
 }
 
+:deep(.el-menu .el-menu-item){
+	color: #bfcbd9;
+}
 /* 菜单点中文字的颜色 */
-::v-deep .el-menu-item.is-active {
-  color: #409eff !important;
+
+:deep(.el-menu-item.is-active){
+	color: #409eff !important;
 }
 /* 当前打开菜单的所有子菜单颜色 */
-::v-deep .is-opened .el-menu-item {
-  background-color: #1f2d3d !important;
+
+:deep(.is-opened .el-menu-item){
+	background-color: #1f2d3d !important;
 }
 /* 鼠标移动菜单的颜色 */
-::v-deep .el-menu-item:hover {
-  background-color: #001528 !important;
+
+:deep(.el-menu-item:hover){
+	background-color: #001528 !important;
 }
 </style>
