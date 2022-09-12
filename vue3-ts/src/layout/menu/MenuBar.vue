@@ -14,13 +14,6 @@
 
 <script lang="ts" setup>
   import { ref, reactive } from 'vue'
-  import {
-    Document,
-    Menu as IconMenu,
-    Location,
-    Setting,
-  } from '@element-plus/icons-vue'
-
   import MenuItem from './MenuItem.vue'
   import MenuLogo from './MenuLogo.vue'
 
@@ -31,7 +24,7 @@
           component: "Layout",
           meta: {
               title: "首页",
-              icon: "el-icon-s-home",
+              icon: "HomeFilled",
               roles: ["sys:manage"]
           },
           children: []
@@ -43,7 +36,7 @@
           name: "system",
           meta: {
               title: "系统管理",
-              icon: "el-icon-menu",
+              icon: "Menu",
               roles: ["sys:manage"],
               parentId: 0,
           },

@@ -8,7 +8,7 @@ import router from '@/router'
 import { store, key } from '@/store'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-let app = createApp(App)
+const app = createApp(App)
 app.use(router).use(store, key).use(ElementPlus).mount('#app')
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)

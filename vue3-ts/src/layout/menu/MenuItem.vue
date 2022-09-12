@@ -6,7 +6,8 @@
       :key="menu.path"
     >
       <template #title>
-        <i :class="menu.meta.icon"></i>
+        <i v-if="menu.meta.icon && menu.meta.icon.includes('el-icon')" :class="menu.meta.icon"></i>
+        <component v-else :is="menu.meta.icon" class="icons"></component>
         <span>{{ menu.meta.title }}</span>
       </template>
       <menu-item :menuList="menu.children"></menu-item>
@@ -15,22 +16,21 @@
     style="color: #f4f4f5"
       v-else
       :index="menu.path">
-      <i :class="menu.meta.icon"></i>
+        <i v-if="menu.meta.icon && menu.meta.icon.includes('el-icon')" :class="menu.meta.icon"></i>
+        <component v-else :is="menu.meta.icon" class="icons"></component>
       <template #title>{{ menu.meta.title }}</template>
     </el-menu-item>
   </template>
 </template>
 
 <script lang="ts" setup>
-  import {
-    Document,
-    Menu as IconMenu,
-    Location,
-    Setting,
-  } from '@element-plus/icons-vue'
-
   defineProps(['menuList'])
 </script>
 
 <style lang="scss" scoped>
+  .icons {
+    width: 24px;
+    height: 18px;
+    margin-right: 5px;
+  }
 </style>
