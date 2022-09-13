@@ -1,5 +1,5 @@
 <template>
-  <MenuLogo v-if="!isCollapse"></MenuLogo>
+  <MenuLogo class="layout-logo" v-if="!isCollapse"></MenuLogo>
   <el-menu
     :default-active="activeIndex"
     class="el-menu-vertical-demo"
@@ -198,5 +198,22 @@
 
 :deep(.el-menu-item:hover){
 	background-color: #001528 !important;
+}
+
+
+
+@keyframes logoAnimation {
+    0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+.layout-logo {
+    animation: logoAnimation 1s ease-out;
 }
 </style>
