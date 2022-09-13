@@ -25,6 +25,7 @@ export const store = createStore<State>({
         state.collapse = collapse
     },
     addTab: (state: State, tab: ITable)=>{
+        console.log('store: ', tab)
         if (state.tabsList.some(item=> item.path === tab.path)) {
             return
         }
