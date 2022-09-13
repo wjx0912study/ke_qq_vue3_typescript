@@ -1,5 +1,5 @@
 <template>
-  <MenuLogo></MenuLogo>
+  <MenuLogo v-if="!isCollapse"></MenuLogo>
   <el-menu
     :default-active="activeIndex"
     class="el-menu-vertical-demo"
@@ -15,7 +15,8 @@
 
 <script lang="ts" setup>
   import { computed } from '@vue/reactivity';
-import { ref, reactive } from 'vue'
+  import { ref, reactive } from 'vue'
+  import  { useStore } from '@/store'
   import { useRoute } from 'vue-router'
   import MenuItem from './MenuItem.vue'
   import MenuLogo from './MenuLogo.vue'
@@ -153,8 +154,12 @@ import { ref, reactive } from 'vue'
           ],
       },
   ]);
-    
-  const isCollapse = ref(false)
+  
+
+  const store = useStore()
+  const isCollapse = computed(()=>{
+    return store.getters['getCollapse']
+  })
   const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
   }

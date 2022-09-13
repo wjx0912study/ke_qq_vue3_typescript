@@ -35,5 +35,13 @@
   .main {
     //background-color: darkgray;
   }
+
+  el-header {
+    margin: 0px;
+  }
+
+  Header{
+    margin: 0px;
+  }
 }
 </style>
