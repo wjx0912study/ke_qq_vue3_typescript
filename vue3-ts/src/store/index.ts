@@ -1,10 +1,12 @@
 // store.ts
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
+import { ITable } from './type'
 
 export interface State {
   count: number,
-  collapse: boolean
+  collapse: boolean,
+  tabsList: Array<ITable>
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()
@@ -12,7 +14,8 @@ export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
   state: {
     count: 0,
-    collapse: false
+    collapse: false,
+    tabsList: []
   },
   mutations: {
     setCount(state: State, count: number) {
@@ -20,6 +23,12 @@ export const store = createStore<State>({
     },
     setCollapse: (state: State, collapse: boolean)=>{
         state.collapse = collapse
+    },
+    addTab: (state: State, tab: ITable)=>{
+        if (state.tabsList.some(item=> item.path === tab.path)) {
+            return
+        }
+        state.tabsList.push(tab)
     }
   },
   getters: {
@@ -28,6 +37,9 @@ export const store = createStore<State>({
     },
     getCollapse: (state: State)=>{
       return state.collapse
+    },
+    getTabs: (state: State)=>{
+        return state.tabsList
     }
   }
 })
