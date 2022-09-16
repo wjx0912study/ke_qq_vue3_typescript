@@ -6,11 +6,12 @@
     defineProps<{ msg: string }>()
     
     const store = useStore()
-    const count = computed(()=> store.getters['getCouter'])
+    const count = computed(()=> store.getters['getCount'])
     const tabs = computed(()=> store.getters['getTabs'])
 
     const oldCount = ref(0)
     const addBtn = ()=> {
+        console.log('oldCount.value:', oldCount.value)
         store.commit('addCount', ++oldCount.value)
     }
     const addTabs = ()=> {

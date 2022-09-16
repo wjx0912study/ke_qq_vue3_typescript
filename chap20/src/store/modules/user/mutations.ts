@@ -7,6 +7,7 @@ export type UserMutations = {
 
 export const mutations: UserMutations & MutationTree<UserState> = {
     addCount(state: UserState, count: number) {
+        console.log('mutations', count)
         state.count = count
     }
 }
