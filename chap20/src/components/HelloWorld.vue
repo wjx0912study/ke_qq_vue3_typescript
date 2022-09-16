@@ -7,16 +7,22 @@
     
     const store = useStore()
     const count = computed(()=> store.getters['getCouter'])
-    
+    const tabs = computed(()=> store.getters['getTabs'])
+
     const oldCount = ref(0)
     const addBtn = ()=> {
         store.commit('addCount', ++oldCount.value)
+    }
+    const addTabs = ()=> {
+        store.commit('addTabs', '菜单1')
     }
     </script>
     
     <template>
       <h1>{{ msg }}</h1>
       <button @click="addBtn">add</button>
+      <h3 v-for="tab in tabs" :key="tab">{{ tab }}</h3>
+      <button @click="addTabs">新增tabs</button>
       <h1>{{ count }}</h1>
     
       <div class="card">

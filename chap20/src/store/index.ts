@@ -6,7 +6,7 @@ import { UserState } from './modules/user/state'
 import { tabsModule } from './modules/tabs'
 import { userModule } from './modules/user'
 
-export interface RootState {
+export type RootState = {
   tabs: TabsState,
   user: UserState
 }
@@ -16,7 +16,6 @@ const modules = {
     user: userModule
 }
 
-
 export const key: InjectionKey<Store<RootState>> = Symbol()
 
 export const store = createStore<RootState>({
@@ -25,5 +24,5 @@ export const store = createStore<RootState>({
 
 // 定义自己的 `useStore` 组合式函数
 export function useStore () {
-  return baseUseStore(key)
+  return store
 }
