@@ -35,7 +35,7 @@
     border-bottom: 1px solid #e5e5e5;
   }
   .main {
-    //background-color: darkgray;
+    padding-top: 0px;
   }
 
   el-header {
