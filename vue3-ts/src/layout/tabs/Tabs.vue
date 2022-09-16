@@ -14,7 +14,7 @@ const route = useRoute()
 const router = useRouter()
 const store = useStore()
 const tabsList = computed(() => {
-  return store.getters['getTabs']
+  return store.getters['tabs/getTabs']
 })
 const activeTab = ref('')
 const setActiveTab = () => {
@@ -40,14 +40,14 @@ const removeTab = (targetName: string) => {
     })
   }
   activeTab.value = activeName
-  store.state.tabsList = tabs.filter((tab: ITable) => tab.path !== targetName)
+  store.state.tabs.tabsList = tabs.filter((tab: ITable) => tab.path !== targetName)
   router.push({ path: activeName })
 }
 
 const addTab = () => {
   const { path, meta } = route
   const tab: ITable = { path: path, title: meta.title as string }
-  store.commit('addTab', tab)
+  store.commit('tabs/addTab', tab)
 }
 
 watch(
@@ -64,7 +64,7 @@ const beforeRefresh = ()=>{
     if (tabSession) {
         let oldTabs = JSON.parse(tabSession)
         if (oldTabs.length > 0) {
-            store.state.tabsList = oldTabs
+            store.state.tabs.tabsList = oldTabs
         }
     }
 }

@@ -7,11 +7,11 @@ defineProps<{ msg: string }>()
 const store = useStore()
 const count = ref(0)
 const showCount = computed(()=>{
-  return store.getters['getCount']
+  return store.getters['menu/getCount']
 })
 
 const addBtn = ()=>{
-  store.commit('setCount', ++count.value)
+  store.commit('menu/setCount', ++count.value)
 }
 </script>
 

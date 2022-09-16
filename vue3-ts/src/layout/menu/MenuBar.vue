@@ -158,7 +158,7 @@
 
   const store = useStore()
   const isCollapse = computed(()=>{
-    return store.getters['getCollapse']
+    return store.getters['menu/getCollapse']
   })
   const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
